@@ -1,0 +1,8 @@
+.env
+.venv/
+English/
+Focp/
+ICT_assignments/
+**/old_hash.txt
+.vscode/
+maybe
