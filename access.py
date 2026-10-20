@@ -7,7 +7,6 @@ from playwright.async_api import async_playwright
 
 LOGIN_URL = "https://qalam.nust.edu.pk/"
 DASHBOARD_URL = "https://qalam.nust.edu.pk/student/dashboard"
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 FILE_PATH = Path(__file__).parent
 USERNAME = os.getenv("PORTAL_USER")
 PASSWORD = os.getenv("PORTAL_PASS")
@@ -18,8 +17,13 @@ assignments = ["ICT"]
 
 async def login_and_scrape(quiz,assignment):
   async with async_playwright() as p:
-    browser = await p.chromium.launch(headless=False)
-    context = await browser.new_context()
+    browser = await p.chromium.launch(
+            headless=True)
+        
+  
+        
+    context = await browser.new_context(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        viewport={"width": 1920, "height": 1080})
     page = await context.new_page()
 
     try:
