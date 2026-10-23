@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Installing Dependencies
+        run: pip install playwright
+        
 
       - name: Execute script
         run: python access.py
