@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Execute script
-        run: access.py
+        run: python access.py
