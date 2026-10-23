@@ -18,7 +18,7 @@ assignments = ["ICT"]
 async def login_and_scrape(quiz,assignment):
   async with async_playwright() as p:
     browser = await p.chromium.launch(
-            headless=True)
+            headless=False)
         
   
         
